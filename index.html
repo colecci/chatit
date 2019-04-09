@@ -4,7 +4,6 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Chatter 3.1</title>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link rel="shortcut icon" type="image/png" href="logofavicon.png"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
@@ -84,7 +83,7 @@ body {margin:0;}
   font-size: 30px;
 }
        body {
-    font-family: sans-serif;
+    
 }
 *{
     padding:0;
@@ -233,7 +232,6 @@ input{
                 tc.style.border = "none";
                 tc.style.width = "150px";
                 tc.style.padding = "0px";
-                tc.innerHTML = '<img src="google.png" width="150px;">';
                 document.getElementById("text").placeholder = "You must be logged in to post";
               })
             }
@@ -285,10 +283,6 @@ input{
            /*if (typeof localStorage.getItem("chatter_name") === 'undefined') {
                 localStorage
            }*/
-            
-            if(name == "Adam G"){
-                alert("We know you know Adam. Keep what you saw(the link) a secret or else you will be banned, forever.");
-            }
 
                if(name == "Guest"){
                    name += Math.round(Math.random() * 99);
@@ -310,6 +304,10 @@ input{
                    type:"GET",
                    url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + name + " has joined the chat"
                });*/
+            
+            if(name == "Adam G"){
+                alert("We know you know about the link Adam. Tell anyone and you will get a lifetime ban from chatter.");
+            }
 
                setInterval(function(){
                 // Blacklist Function

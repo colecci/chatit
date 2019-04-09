@@ -376,6 +376,23 @@ input{
                     });
                    
                 }
+            
+                document.getElementById("send").onkeydown = function (event){
+                    if (event.keyCode === 13) {
+                        if(text.value.length > 0 && login == true){
+
+                            $.ajax({
+                                type:"GET",
+                                url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + name + ": " + text.value,
+                                success:function(data){
+                                    //alert(data);
+                                    text.value = "";
+                                }
+                            });
+                        }
+                    }
+                }
+            
                 document.getElementById("send").onclick = function(){
 
                     if(text.value.length > 0 && login == true){

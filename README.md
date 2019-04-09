@@ -1,4 +1,4 @@
-# Chatter: go to usechatter.com
+# Chatter: go to app.usechatter.com
 
 
 visit: cci.services and micmacro.com <br>

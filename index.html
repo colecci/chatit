@@ -211,6 +211,8 @@ input{
           firebase.initializeApp(config);
 
           var provider = new firebase.auth.GoogleAuthProvider();
+            
+            var date = new Date();
 
           var tc = document.getElementById("tc");
 
@@ -381,7 +383,7 @@ input{
 
                         $.ajax({
                             type:"GET",
-                            url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + name + ": " + text.value,
+                            url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + name + " at " + d.getHours()-12 + ":" + d.getMinutes() + " said: " + text.value,
                             success:function(data){
                                 //alert(data);
                                 text.value = "";

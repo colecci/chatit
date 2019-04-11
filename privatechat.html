@@ -363,9 +363,7 @@ input{
 
                 if(login == true){
                   window.login = true;
-                  document.getElementById("hey").innerHTML = "Hello, " + result.user.displayName + ". You are in room " + roomnum;
-                  window.name = result.user.displayName;
-                  window.user = result.user;
+                  document.getElementById("hey").innerHTML = "Hello, " + window.name + ". You are in room " + roomnum;
                   tc.innerHTML = "Logout"
                   tc.style.background = "white";
                   tc.style.border = "1px solid black";

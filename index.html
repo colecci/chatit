@@ -342,10 +342,38 @@ input{
                     }
                 }
                },100);*/
+            
+                document.body.onload = function(){
+                    if(login == true){
+                      window.login = true;
+                      document.getElementById("hey").innerHTML = "Hello, " + window.name;
+                      tc.innerHTML = "Logout"
+                      tc.style.background = "white";
+                      tc.style.border = "1px solid black";
+                      tc.style.width = "50px";
+                      tc.style.padding = "2px";
+                      document.getElementById("text").placeholder = "Come On, Join the Conversation!";
+                        
+                        $.ajax({
+                           type:"GET",
+                           url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + window.name + " has joined the chat"
+                       });
+                    }
+                }
 
                setInterval(update,500);
 
-               function update(){
+             function update(){
+               if(login == true){
+                  window.login = true;
+                  document.getElementById("hey").innerHTML = "Hello, " + window.name;
+                  tc.innerHTML = "Logout"
+                  tc.style.background = "white";
+                  tc.style.border = "1px solid black";
+                  tc.style.width = "50px";
+                  tc.style.padding = "2px";
+                  document.getElementById("text").placeholder = "Come On, Join the Conversation!";
+                }
                 $.ajax({
                   url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta",
                   type:"GET",

@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Chatter 2.1 Private Chat</title>
+        <link rel="shortcut icon" type="image/png" href="logofavicon.png"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+       <style>
+            
+#mySidenav a {
+  position: absolute;
+  left: -80px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 80px;
+  text-decoration: none;
+  font-size: 30px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+#about {
+  top: 75px;
+  background-color: #4CAF50;
+}
+    .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 4%;
+}
+body {margin:0;}
+
+.icon-bar {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+
+.icon-bar a:hover {
+  background-color: #7ccaff;
+}
+
+.github {
+  background: #000;
+  color: white;
+}
+    
+    .google {
+  background: #dd4b39;
+  color: white;
+}
+
+.twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+
+.youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.content {
+  margin-left: 75px;
+  font-size: 30px;
+}
+*{
+    padding:0;
+    margin:0;
+}
+input{
+    font-size:20px;
+}
+#nav{
+    border-bottom:1px solid silver;
+    width:100%;
+    height:10%;
+    position:absolute;
+    background-color:#4a83e0;
+    color:white;
+    text-align:center;
+    font-family:Arial;
+}
+#wrap{
+    background-color:#4e85aa;
+    position:absolute;
+    height:80%;
+    width:100%;
+    top:10%;
+}
+#chat{
+    top:15%;
+    height:70%;
+    /**border:1px solid white;**/
+    width:80%;
+    position:absolute;
+    left:10%;
+    overflow-y:scroll;
+}
+/**
+#hashtag{
+    width:20%;
+    height:9%;
+    top:90%;
+    position:absolute;
+}
+**/
+#text{
+    top:90%;
+    width:80%;
+    height:9%;
+    left:0%;
+    position:absolute;
+}
+#send{
+    width:20%;
+    height:10%;
+    left:80%;
+    top:90%;
+    position:absolute;
+    background-color:#4e85aa;
+    background-image:url(sendicon.png);
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:45%;
+    
+}
+#send:active{
+    background-color:#4e8bed;
+}
+.non_mod_text{
+    position:relative;
+    display:block;
+    width:80%;
+    height:20%;
+    left:10%;
+    background-color: #ffddcc;
+    border-radius:5px;
+    border:1px solid Black;
+    overflow:hidden;
+    margin:5px;
+}
+.add_padding{
+    padding:5px;
+}
+</style>
+    </head>
+    <body style="background:#5595fc;">
+        
+        
+       
+
+        <img src="https://raw.githubusercontent.com/UseChatter/chatter-logo-full-set-2.0/master/chatter-logo.png" alt="Logo" height="29" width="229" class="center">
+        
+        <div id = "nav">
+            <span id="hey"></span>
+            <button id="tc" style="background: none;border: none;width: 150px;padding: 0px"><img src="google.png" width="150px;"></button>
+        </div>
+        <div id = "wrap"></div>
+        <div id = "chat"></div>
+        <div id = "panel">
+            <input id = "text" placeholder = "You must be logged in to post">
+            <div id = "send"></div>
+            
+        </div>
+        <div id="mySidenav" class="sidenav">
+     
+    </div>
+
+    <div class="icon-bar">
+      <a href="https://github.com/UseChatter" class="github"><i class="fa fa-github"></i></a> 
+        <a href="https://plus.google.com/101801779968209343101/" class="google"><i class="fa fa-google-plus"></i></a> 
+        <a href="https://twitter.com/usechatter" class="twitter"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.youtube.com/channel/UCHCbhcaX_KUwmTMj-2x2pXA" class="youtube"><i class="fa fa-youtube"></i></a> 
+    </div>
+        <script src = "https://jaydengames.000webhostapp.com/jquery-3.3.1.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+        <script id='pixel-script-poptin' src='https://cdn.popt.in/pixel.js?id=de951cc5caf50' async='true'></script> 
+        <script>
+            
+            // DO NOT TAMPER WITH THIS CODE. TAMPERING WITH THIS CODE IS IN VIOLATION OF THE CHATTER TERMS OF USE AND IS PUNISHABLE BY PERMENTANT BAN ON ALL CCI, RASIPAINT, AND MICMACRO PRODUCTS INCLUDING CHATTER.
+
+            //var name = prompt("What is your name?");
+
+            //var roomnum = prompt("Please enter a room number: ");
+
+          //var roomnum = "";
+
+          var roomnum = localStorage.getItem("chatter_private_room_number");
+
+          if(localStorage.chatter_private_room_number == undefined){
+            alert("You have not provided a room number. You will now be redirected back to public Chatter.");
+            location.href = "https://app.usehatter.com";
+          }
+            
+          var prev = "";
+          var login = false;
+          var config = {
+            apiKey: "AIzaSyBTyYcPrOtFBxHFW9afbFWmcwA-pfqWpmw",
+            authDomain: "cci-micmacro-chatter.firebaseapp.com",
+            databaseURL: "https://cci-micmacro-chatter.firebaseio.com",
+            projectId: "cci-micmacro-chatter",
+            storageBucket: "cci-micmacro-chatter.appspot.com",
+            messagingSenderId: "272359858522"
+          };
+          firebase.initializeApp(config);
+
+          var provider = new firebase.auth.GoogleAuthProvider();
+
+          var tc = document.getElementById("tc");
+
+          tc.onclick = function(){
+            if(login == false){
+              firebase.auth().signInWithRedirect(provider);
+            }else if(login == true){
+              $.ajax({
+                   type:"GET",
+                   url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + window.name + " has left the chat"
+               });
+              firebase.auth().signOut().then(function() {
+                window.login = false;
+                document.getElementById("hey").innerHTML = "";
+                window.name = "Guest";
+                tc.innerHTML = '<img src="google.png" width="100px;">';
+                //style="background: none;border: none;width: 150px;padding: 0px"
+                tc.style.background = "none";
+                tc.style.border = "none";
+                tc.style.width = "150px";
+                tc.style.padding = "0px";
+                document.getElementById("text").placeholder = "You must be logged in to post";
+              })
+            }
+          }
+
+          firebase.auth().getRedirectResult().then(function(result) {
+            if (result.credential) {
+              // This gives you a Google Access Token. You can use it to access the Google API.
+              var token = result.credential.accessToken;
+              // ...
+              window.login = true;
+              document.getElementById("hey").innerHTML = "Hello, " + result.user.displayName + ". You are in room " + roomnum;
+              window.name = result.user.displayName;
+              window.user = result.user;
+              tc.innerHTML = "Logout"
+              tc.style.background = "white";
+              tc.style.border = "1px solid black";
+              tc.style.width = "50px";
+              tc.style.padding = "2px";
+              document.getElementById("text").placeholder = "Come On, Join the Conversation!";
+              $.ajax({
+                   type:"GET",
+                   url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + result.user.displayName + " has joined the chat"
+               });
+            }
+              // other stuff here
+            }).catch(function(error) {
+              // Handle Errors here.
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              // The email of the user's account used.
+              var email = error.email;
+              // The firebase.auth.AuthCredential type that was used.
+              var credential = error.credential;
+              // ...
+          });
+            
+            window.onbeforeunload = function(){
+               if(login == true){
+                   $.ajax({
+                       type:"GET",
+                       url:"privchat.php?ver=privbeta&room=" + roomnum + "&q=" + window.name + " has left the chat"
+                    });
+                  //firebase.auth().signOut();
+               }
+            }
+
+           //var name = prompt("What is your name");
+           /*if (typeof localStorage.getItem("chatter_name") === 'undefined') {
+                localStorage
+           }*/
+
+            if(name == "Adam G"){
+                alert("You have illegally shared trade secrets of the Chatter Group. Chatter has banned you because of this act. Please note that is ban is not a legal sentence and legal mesures may be taken.");
+                alert("You have been banned for violating the Terms of Use, this is a perment ban and you will never be able to use Chatter again.");
+                alert("Your account has been banned. It is possible to unban this account with a membership or fine under certian circumstances. Please contact admins for further infomation. You have been banned from Chatter for sharing trade secrets. The estimated settlement/fine to unblock this account is $9.99 USD + $2.01 USD Service Charge or €10 EUR + €2 Service Charge + €5 Conversion Fee, and a 20% extra on all purchases. Note this is just an estimation. An unblock account will also be monitered extremely. Another violation to Chatter Term of Use would cause another ban and a 40% increase in unblock fees(100% increase in service charges, no increase on conversion fees). ");
+            }
+            
+               if(name == "Guest"){
+                   name += Math.round(Math.random() * 99);
+               }
+               var chat = document.getElementById("chat");
+
+               var send = document.getElementById("send");
+
+               var text = document.getElementById("text");
+
+
+               var span = document.getElementsByTagName("span");
+
+               var welcomeNote = document.createElement("span");
+
+                //document.getElementById("hey").innerHTML = "Hello, " + name + "!";
+
+               /*$.ajax({
+                   type:"GET",
+                   url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + name + " has joined the chat"
+               });*/
+            
+            if(name == "Adam G"){
+                alert("Adam, you have made a bad choice, you shared the link out and now you have received a life-time ban. You can't get around this, hack it or abuse it. Your google account login for Chatter has been frozen and blocked.");
+                location.href = "https://app.usechatter.com";
+            }
+
+               /*setInterval(function(){
+                // Blacklist Function
+                var inputo = text.value;
+                var input = inputo.toLowerCase();
+                var words = input.split(" ");
+
+                for (var i = 0; i < words.length; i++) {
+                    var curword = words[i];
+
+                    if(curword == "francis" || curword == "fransis" || curword == "mcnutty" || curword == "hate" || curword == "fuck" || curword == "shit" || curword == "fuck" || curword == "bitch" || curword == "shit" || curword="crap"){
+                        alert("This word is banned. Your message has been deleted. This incident has been reported.");
+                        text.value = "";
+                        var d = new Date();
+                        var database = firebase.database();
+                        var rawdata = database.ref('homebannedWords2/');
+                        rawdata.push({msg:myIP+"- "+name+": "+curword+" at "+d.getFullYear()+","+d.getMonth()+","+d.getDate()+","+d.getHours()+":"+d.getMinutes()});
+                    }
+
+                    if(name != "Cole" && name != "Michael"){
+                        if(curword == "~"){
+                            alert("This function is reserved for admins only.");
+                            text.value = "";
+                        }
+                    }
+                }
+               },100);*/
+
+               setInterval(update,500);
+
+               function update(){
+
+                if(login == true){
+                  window.login = true;
+                  document.getElementById("hey").innerHTML = "Hello, " + result.user.displayName + ". You are in room " + roomnum;
+                  window.name = result.user.displayName;
+                  window.user = result.user;
+                  tc.innerHTML = "Logout"
+                  tc.style.background = "white";
+                  tc.style.border = "1px solid black";
+                  tc.style.width = "50px";
+                  tc.style.padding = "2px";
+                  document.getElementById("text").placeholder = "Come On, Join the Conversation!";
+                }
+
+                $.ajax({
+                  url:"http://chatochondria.000webhostapp.com/privchat.php?ver=privbeta&room=" + roomnum,
+                  type:"GET",
+                  success:function(data){
+                    if(prev != data){
+                      document.getElementById("chat").innerHTML = "";
+                      welcomeNote.className = "non_mod_text";
+
+                      welcomeNote.innerHTML = "InfoBot: " + "<span style = 'color:darkblue;'>Hello there, welcome to Chatter! Before you get started with your journey, we would like you to know about our simple rules. You may not abuse this program with inappropriate/hurtful content. Failure to follow the rule will result in suspension, added blacklist characters including your name, and banning of your computer. Admins can access/view all messages at all times. Some names and words are banned. Thanks and have fun! Chatter Version 2.1</span>";
+
+                      chat.appendChild(welcomeNote);
+
+                      ds = data.split("_NXT_MSG_");
+
+                      for (var i = 0; i < ds.length; i++) {
+                        var dataTarget = document.createElement("span");
+                        var addPadding = document.createElement("span");
+                        addPadding.innerHTML = ds[i];
+
+                        addPadding.className = "add_padding";
+                        addPadding.style.overflow = "auto";
+                        dataTarget.appendChild(addPadding);
+
+                        dataTarget.className = "non_mod_text";
+                        chat.appendChild(dataTarget);
+
+                          chat.scrollTop = chat.scrollHeight;
+
+                      } 
+                    }
+                    prev = data;
+                    }
+
+                    });
+                   
+                }
+            
+                document.getElementById("send").onclick = function(){
+
+                    if(text.value.length > 0 && login == true){
+
+                        $.ajax({
+                            type:"GET",
+                            url:"https://chatochondria.000webhostapp.com/privchat.php?ver=privbeta&room=" + roomnum + "&q=" + name + ": " + text.value,
+                            success:function(data){
+                                //alert(data);
+                                text.value = "";
+                            }
+                        });
+                    }
+                }
+       </script>
+    </body>
+</html>

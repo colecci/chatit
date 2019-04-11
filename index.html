@@ -3,21 +3,18 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Chatter 3.2.1</title>
+        <title>Chatter 2.2.1</title>
         <link rel="shortcut icon" type="image/png" href="logofavicon.png"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="main.css">
     </head>
     <body style="background:#5595fc;">
-        
-        
-       
 
         <img src="https://raw.githubusercontent.com/UseChatter/chatter-logo-full-set-2.0/master/chatter-logo.png" alt="Logo" height="29" width="229" class="center">
         
         <div id = "nav">
             <span id="hey"></span>
-            <button id="tc" style="background: none;border: none;width: 150px;padding: 0px"><img src="google.png" width="150px;"></button>
+            <center><button id="tc" style="background: none;border: none;width: 150px;padding: 0px"><img src="google.png" width="150px;"></button></center>
         </div>
         <div id = "wrap"></div>
         <div id = "chat"></div>
@@ -34,12 +31,34 @@
       <a href="https://github.com/UseChatter" class="github"><i class="fa fa-github"></i></a> 
         <a href="https://plus.google.com/101801779968209343101/" class="google"><i class="fa fa-google-plus"></i></a> 
         <a href="https://twitter.com/usechatter" class="twitter"><i class="fa fa-twitter"></i></a>
-      <a href="https://www.youtube.com/channel/UCHCbhcaX_KUwmTMj-2x2pXA" class="youtube"><i class="fa fa-youtube"></i></a> 
+      <a href="https://www.youtube.com/channel/UCHCbhcaX_KUwmTMj-2x2pXA" class="youtube"><i class="fas fa-youtube"></i></a> 
+    </div>
+
+    <div class="action-bar">
+      <a class="createpriv"><i style="font-size: 15px">Private Chat</i></a>
+      <a id="cpriv" class="createpriv"><i class="fa fa-plus" title="Create Private Chat"></i></a> 
+      <a id="jpriv" class="joinpriv"><i class="fa fa-weixin" title="Join Private Chat"></i></a> 
     </div>
         <script src = "https://jaydengames.000webhostapp.com/jquery-3.3.1.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
         <script id='pixel-script-poptin' src='https://cdn.popt.in/pixel.js?id=de951cc5caf50' async='true'></script> 
         <script>
+
+          document.getElementById("cpriv"){
+            var rt = prompt("Please enter a unique and secure chat room code made up of numbers and letters. Do NOT use generic codes like 'password' or 'chatroom' to avoid collisons with codes. Anyone with this code can join the private chatroom: ");
+
+            localStorage.setItem("chatter_private_room_number", rt);
+
+            location.href = "privatechat.html";
+          }
+
+          document.getElementById("jpriv"){
+            var rt = prompt("Please enter the secure chat room code for the chatroom you are entering: ");
+
+            localStorage.setItem("chatter_private_room_number", rt);
+
+            location.href = "privatechat.html";
+          }
             
             // DO NOT TAMPER WITH THIS CODE. TAMPERING WITH THIS CODE IS IN VIOLATION OF THE CHATTER TERMS OF USE AND IS PUNISHABLE BY PERMENTANT BAN ON ALL CCI, RASIPAINT, AND MICMACRO PRODUCTS INCLUDING CHATTER.
             
@@ -71,7 +90,7 @@
                 window.login = false;
                 document.getElementById("hey").innerHTML = "";
                 window.name = "Guest";
-                tc.innerHTML = '<img src="google.png" width="150px;">';
+                tc.innerHTML = '<img src="google.png" width="100px;">';
                 //style="background: none;border: none;width: 150px;padding: 0px"
                 tc.style.background = "none";
                 tc.style.border = "none";

@@ -44,7 +44,7 @@
         <script id='pixel-script-poptin' src='https://cdn.popt.in/pixel.js?id=de951cc5caf50' async='true'></script> 
         <script>
 
-          document.getElementById("cpriv"){
+          document.getElementById("cpriv").onclick = function(){
             var rt = prompt("Please enter a unique and secure chat room code made up of numbers and letters. Do NOT use generic codes like 'password' or 'chatroom' to avoid collisons with codes. Anyone with this code can join the private chatroom: ");
 
             localStorage.setItem("chatter_private_room_number", rt);
@@ -52,7 +52,7 @@
             location.href = "privatechat.html";
           }
 
-          document.getElementById("jpriv"){
+          document.getElementById("jpriv").onclick = function(){
             var rt = prompt("Please enter the secure chat room code for the chatroom you are entering: ");
 
             localStorage.setItem("chatter_private_room_number", rt);

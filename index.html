@@ -43,17 +43,44 @@
         <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
         <script id='pixel-script-poptin' src='https://cdn.popt.in/pixel.js?id=de951cc5caf50' async='true'></script> 
         <script>
+            
+            function myFunction() {
+              var x = Math.floor((Math.random() * 999));
+              return x;
+            }
+
+            function myLets() {
+              var xy = Math.floor((Math.random() * 25));
+              var lets = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+              return lets[xy];
+            }
+
+            function privoc() {
+              var x = myFunction().toString();
+              var leto = myLets();
+              var lett = myLets();
+              var y = myFunction().toString();
+
+              var xx = x + leto + lett + y;
+
+              return xx;
+            }
 
           document.getElementById("cpriv").onclick = function(){
-            var rt = prompt("Please enter a unique and secure chat room code made up of numbers and letters. Do NOT use generic codes like 'password' or 'chatroom' to avoid collisons with codes. Anyone with this code can join the private chatroom: ");
+            alert("A random unique & secure chat room code will be created. You will be automaticly redirected to the chatroom");
 
-            localStorage.setItem("chatter_private_room_number", rt);
+            localStorage.setItem("chatter_private_room_number", privoc());
 
             location.href = "privatechat.html";
           }
 
           document.getElementById("jpriv").onclick = function(){
             var rt = prompt("Please enter the secure chat room code for the chatroom you are entering: ");
+              
+              if(rt == "" || rt == " " || rt == null || rt == undefined){
+                alert("You have not inputed a chat room code. You will not enter any chatroom");
+                  return;
+              }
 
             localStorage.setItem("chatter_private_room_number", rt);
 

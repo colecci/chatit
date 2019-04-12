@@ -234,7 +234,7 @@ input{
             }else if(login == true){
               $.ajax({
                    type:"GET",
-                   url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + window.name + " has left the chat"
+                   url:"https://chatochondria.000webhostapp.com/privchat.php?ver=verbeta&q=" + window.name + " has left the chat"
                });
               firebase.auth().signOut().then(function() {
                 window.login = false;
@@ -268,7 +268,7 @@ input{
               document.getElementById("text").placeholder = "Come On, Join the Conversation!";
               $.ajax({
                    type:"GET",
-                   url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + result.user.displayName + " has joined the chat"
+                   url:"https://chatochondria.000webhostapp.com/privchat.php?ver=verbeta&q=" + result.user.displayName + " has joined the chat"
                });
             }
               // other stuff here
@@ -322,7 +322,7 @@ input{
 
                /*$.ajax({
                    type:"GET",
-                   url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + name + " has joined the chat"
+                   url:"https://chatochondria.000webhostapp.com/privchat.php?ver=verbeta&q=" + name + " has joined the chat"
                });*/
             
             if(name == "Adam G"){

@@ -287,7 +287,7 @@ input{
                if(login == true){
                    $.ajax({
                        type:"GET",
-                       url:"privchat.php?ver=privbeta&room=" + roomnum + "&q=" + window.name + " has left the chat"
+                       url:"https://chatochondria.000webhostapp.com/privchat.php?ver=privbeta&room=" + roomnum + "&q=" + window.name + " has left the chat"
                     });
                   //firebase.auth().signOut();
                }
@@ -373,7 +373,7 @@ input{
                 }
 
                 $.ajax({
-                  url:"http://chatochondria.000webhostapp.com/privchat.php?ver=privbeta&room=" + roomnum,
+                  url:"https://chatochondria.000webhostapp.com/privchat.php?ver=privbeta&room=" + roomnum,
                   type:"GET",
                   success:function(data){
                     if(prev != data){

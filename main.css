@@ -138,6 +138,8 @@ input{
     height:9%;
     left:0%;
     position:absolute;
+    border: none;
+  border-bottom: 2px solid gray;
 }
 #send{
     width:20%;

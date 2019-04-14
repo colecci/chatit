@@ -116,6 +116,7 @@ input{
     color:white;
     text-align:center;
     font-family:Arial;
+          cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/pointer.png), pointer;
 }
 #wrap{
     background-color:#4e85aa;
@@ -164,6 +165,7 @@ input{
     background-repeat:no-repeat;
     background-position:center;
     background-size:45%;
+        cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/clicker.png), pointer;
     
 }
 #send:active{

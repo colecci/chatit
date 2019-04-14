@@ -16,6 +16,7 @@
   top: 75px;
   background-color: #4CAF50;
 }
+
     .center {
   display: block;
   margin-left: auto;
@@ -114,6 +115,7 @@ input{
     height:80%;
     width:100%;
     top:10%;
+  cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/pointer.png), pointer;
 }
 #chat{
     top:15%;
@@ -123,6 +125,7 @@ input{
     position:absolute;
     left:10%;
     overflow-y:scroll;
+    cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/pointer.png), pointer;
 }
 /**
 #hashtag{
@@ -140,6 +143,7 @@ input{
     position:absolute;
     border: none;
   border-bottom: 5px solid gray;
+    cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/text.png), pointer;
 }
 #send{
     width:20%;

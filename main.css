@@ -31,6 +31,7 @@ body {margin:0;}
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+        cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/clicker.png), pointer;
 }
 .icon-bar a {
   display: block;
@@ -39,9 +40,11 @@ body {margin:0;}
   transition: all 0.3s ease;
   color: white;
   font-size: 20px;
+        cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/clicker.png), pointer;
 }
 .icon-bar a:hover {
   background-color: #7ccaff;
+        cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/clicker.png), pointer;
 }
 .action-bar {
   position: fixed;
@@ -51,6 +54,7 @@ body {margin:0;}
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+        cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/clicker.png), pointer;
 }
 .action-bar a {
   display: block;
@@ -59,9 +63,11 @@ body {margin:0;}
   transition: all 0.3s ease;
   color: white;
   font-size: 20px;
+        cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/clicker.png), pointer;
 }
 .action-bar a:hover {
   background-color: #7ccaff;
+        cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/clicker.png), pointer;
 }
 .github {
   background: #000;

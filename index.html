@@ -14,7 +14,7 @@
         
         <div id = "nav">
             <span id="hey"></span>
-            <center><button id="tc" style="background: none;border: none;width: 150px;padding: 0px"><img src="google.png" width="150px;"></button></center>
+            <center><button id="tc" style="background: none;border: none;width: 150px;padding: 0px; cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/clicker.png), pointer;"><img src="google.png" width="150px;"></button></center>
         </div>
         <div id = "wrap"></div>
         <div id = "chat"></div>
@@ -77,7 +77,7 @@
           document.getElementById("jpriv").onclick = function(){
             var rt = prompt("Please enter the secure chat room code for the chatroom you are entering: ");
               
-              if(rt == "" || rt == " " || rt == null || rt == undefined){
+              if(rt == "" || rt == " " || rt == "   " || rt == "  " || rt == null || rt == undefined){
                 alert("You have not inputed a chat room code. You will not enter any chatroom");
                   return;
               }
@@ -117,7 +117,7 @@
                 window.login = false;
                 document.getElementById("hey").innerHTML = "";
                 window.name = "Guest";
-                tc.innerHTML = '<img src="google.png" width="100px;">';
+                tc.innerHTML = '<img src="google.png" width="150px;">';
                 //style="background: none;border: none;width: 150px;padding: 0px"
                 tc.style.background = "none";
                 tc.style.border = "none";
@@ -176,8 +176,9 @@
            }*/
 
             if(name == "Adam G"){
-                alert("You have illegally shared trade secrets of the Chatter Group. Chatter has banned you because of this act. Please note that is ban is not a legal sentence and legal mesures may be taken.");
+                alert("You have illegally shared trade secrets of the Chatter Group. Chatter has banned you because of this act. Please note that this ban is not a legal sentence and legal mesures may be taken.");
                 alert("You have been banned for violating the Terms of Use, this is a perment ban and you will never be able to use Chatter again.");
+                alert("Adam, you have made a bad choice, you shared the link out and now you have received a life-time ban. You can't get around this, hack it or abuse it. Your google account login for Chatter has been frozen and blocked.");
                 alert("Your account has been banned. It is possible to unban this account with a membership or fine under certian circumstances. Please contact admins for further infomation. You have been banned from Chatter for sharing trade secrets. The estimated settlement/fine to unblock this account is $9.99 USD + $2.01 USD Service Charge or €10 EUR + €2 Service Charge + €5 Conversion Fee, and a 20% extra on all purchases. Note this is just an estimation. An unblock account will also be monitered extremely. Another violation to Chatter Term of Use would cause another ban and a 40% increase in unblock fees(100% increase in service charges, no increase on conversion fees). ");
             }
             
@@ -201,10 +202,6 @@
                    type:"GET",
                    url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + name + " has joined the chat"
                });*/
-            
-            if(name == "Adam G"){
-                alert("Adam, you have made a bad choice, you shared the link out and now you have received a life-time ban. You can't get around this, hack it or abuse it. Your google account login for Chatter has been frozen and blocked.");
-            }
 
                /*setInterval(function(){
                 // Blacklist Function

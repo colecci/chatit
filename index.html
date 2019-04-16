@@ -3,19 +3,185 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Chatter 2.3</title>
+        <title>Chatter 2.3 Private Chat</title>
         <link rel="shortcut icon" type="image/png" href="logofavicon.png"/>
-        <link href="https://app.usechatter.com/emoji-css/emoji.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="main.css">
+       
+       <style>
+#mySidenav a {
+  position: absolute;
+  left: -80px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 80px;
+  text-decoration: none;
+  font-size: 30px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+     cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/clicker.png), pointer;
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+#about {
+  top: 75px;
+  background-color: #4CAF50;
+}
+    .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 4%;
+}
+body {margin:0;}
+
+.icon-bar {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+            cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/clicker.png), pointer;
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+            cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/clicker.png), pointer;
+}
+
+.icon-bar a:hover {
+  background-color: #7ccaff;
+            cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/clicker.png), pointer;
+}
+
+.github {
+  background: #000;
+  color: white;
+}
+    
+    .google {
+  background: #dd4b39;
+  color: white;
+}
+
+.twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+
+.youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.content {
+  margin-left: 75px;
+  font-size: 30px;
+}
+*{
+    padding:0;
+    margin:0;
+}
+input{
+    font-size:20px;
+}
+#nav{
+    border-bottom:1px solid silver;
+    width:100%;
+    height:10%;
+    position:absolute;
+    background-color:#4a83e0;
+    color:white;
+    text-align:center;
+    font-family:Arial;
+            cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/clicker.png), pointer;
+}
+#wrap{
+    background-color:#4e85aa;
+    position:absolute;
+    height:80%;
+    width:100%;
+    top:10%;
+            cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/clicker.png), pointer;
+           }
+#chat{
+    top:15%;
+    height:70%;
+    /**border:1px solid white;**/
+    width:80%;
+    position:absolute;
+    left:10%;
+    overflow-y:scroll;
+        cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/pointer.png), pointer;
+}
+/**
+#hashtag{
+    width:20%;
+    height:9%;
+    top:90%;
+    position:absolute;
+}
+**/
+#text{
+    top:90%;
+    width:80%;
+    height:9%;
+    left:0%;
+    position:absolute;
+     cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/text.png), pointer;
+}
+#send{
+    width:20%;
+    height:10%;
+    left:80%;
+    top:90%;
+    position:absolute;
+    background-color:#4e85aa;
+    background-image:url(sendicon.png);
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:45%;
+    cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/text.png), pointer;
+    
+}
+#send:active{
+    background-color:#4e8bed;
+}
+.non_mod_text{
+    position:relative;
+    display:block;
+    width:80%;
+    height:20%;
+    left:10%;
+    background-color: #ffddcc;
+    border-radius:5px;
+    border:1px solid Black;
+    overflow:hidden;
+    margin:5px;
+}
+.add_padding{
+    padding:5px;
+}
+</style>
     </head>
-    <body style="background:#5595fc; cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/pointer.png), pointer;">
+    <body style="background:#5595fc;">
+        
+        
+       
 
         <img src="https://raw.githubusercontent.com/UseChatter/chatter-logo-full-set-2.0/master/chatter-logo.png" alt="Logo" height="28" width="380" class="center">
         
         <div id = "nav">
             <span id="hey"></span>
-            <center><button id="tc" style="background: none;border: none;width: 150px;padding: 0px; cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/clicker.png), pointer;"><img src="google.png" width="150px;"></button></center>
+            <button id="tc" style="background: none;border: none;width: 150px;padding: 0px; cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/pointer.png), pointer;"><img src="google.png" width="150px;"></button>
         </div>
         <div id = "wrap"></div>
         <div id = "chat"></div>
@@ -34,61 +200,25 @@
         <a href="https://twitter.com/usechatter" class="twitter"><i class="fa fa-twitter"></i></a>
       <a href="https://www.youtube.com/channel/UCHCbhcaX_KUwmTMj-2x2pXA" class="youtube"><i class="fa fa-youtube"></i></a> 
     </div>
-
-    <div class="action-bar">
-      <a class="createpriv"><i style="font-size: 15px">Private Chat</i></a>
-      <a id="cpriv" class="createpriv"><i class="fa fa-plus" title="Create Private Chat"></i></a> 
-      <a id="jpriv" class="joinpriv"><i class="fa fa-weixin" title="Join Private Chat"></i></a> 
-    </div>
-        <script src = "https://code.jquery.com/jquery-3.2.0.min.js"></script>
+        <script src = "https://jaydengames.000webhostapp.com/jquery-3.3.1.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
         <script id='pixel-script-poptin' src='https://cdn.popt.in/pixel.js?id=de951cc5caf50' async='true'></script> 
         <script>
             
-            function myFunction() {
-              var x = Math.floor((Math.random() * 999));
-              return x;
-            }
-
-            function myLets() {
-              var xy = Math.floor((Math.random() * 25));
-              var lets = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-              return lets[xy];
-            }
-
-            function privoc() {
-              var x = myFunction().toString();
-              var leto = myLets();
-              var lett = myLets();
-              var y = myFunction().toString();
-
-              var xx = x + leto + lett + y;
-
-              return xx;
-            }
-
-          document.getElementById("cpriv").onclick = function(){
-            alert("A random unique & secure chat room code will be created. You will be automaticly redirected to the chatroom");
-
-            localStorage.setItem("chatter_private_room_number", privoc());
-
-            location.href = "privatechat.html";
-          }
-
-          document.getElementById("jpriv").onclick = function(){
-            var rt = prompt("Please enter the secure chat room code for the chatroom you are entering: ");
-              
-              if(rt == "" || rt == " " || rt == "   " || rt == "  " || rt == null || rt == undefined){
-                alert("You have not inputed a chat room code. You will not enter any chatroom");
-                  return;
-              }
-
-            localStorage.setItem("chatter_private_room_number", rt);
-
-            location.href = "privatechat.html";
-          }
-            
             // DO NOT TAMPER WITH THIS CODE. TAMPERING WITH THIS CODE IS IN VIOLATION OF THE CHATTER TERMS OF USE AND IS PUNISHABLE BY PERMENTANT BAN ON ALL CCI, RASIPAINT, AND MICMACRO PRODUCTS INCLUDING CHATTER.
+
+            //var name = prompt("What is your name?");
+
+            //var roomnum = prompt("Please enter a room number: ");
+
+          //var roomnum = "";
+
+          var roomnum = localStorage.getItem("chatter_private_room_number");
+
+          if(localStorage.chatter_private_room_number == undefined){
+            alert("You have not provided a room number. You will now be redirected back to public Chatter.");
+            location.href = "https://app.usechatter.com";
+          }
             
           var prev = "";
           var login = false;
@@ -112,13 +242,13 @@
             }else if(login == true){
               $.ajax({
                    type:"GET",
-                   url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + window.name + " has left the chat."
+                   url:"https://chatochondria.000webhostapp.com/privchat.php?ver=verbeta&q=" + window.name + " has left the chat"
                });
               firebase.auth().signOut().then(function() {
                 window.login = false;
                 document.getElementById("hey").innerHTML = "";
                 window.name = "Guest";
-                tc.innerHTML = '<img src="google.png" width="150px;">';
+                tc.innerHTML = '<img src="google.png" width="100px;">';
                 //style="background: none;border: none;width: 150px;padding: 0px"
                 tc.style.background = "none";
                 tc.style.border = "none";
@@ -135,7 +265,7 @@
               var token = result.credential.accessToken;
               // ...
               window.login = true;
-              document.getElementById("hey").innerHTML = "Hello, " + result.user.displayName;
+              document.getElementById("hey").innerHTML = "Hello, " + result.user.displayName + ". You are in room " + roomnum;
               window.name = result.user.displayName;
               window.user = result.user;
               tc.innerHTML = "Logout"
@@ -146,7 +276,7 @@
               document.getElementById("text").placeholder = "Come On, Join the Conversation!";
               $.ajax({
                    type:"GET",
-                   url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + result.user.displayName + " has joined the chat"
+                   url:"https://chatochondria.000webhostapp.com/privchat.php?ver=verbeta&q=" + result.user.displayName + " has joined the chat"
                });
             }
               // other stuff here
@@ -165,7 +295,7 @@
                if(login == true){
                    $.ajax({
                        type:"GET",
-                       url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + window.name + " has left the chat"
+                       url:"https://chatochondria.000webhostapp.com/privchat.php?ver=privbeta&room=" + roomnum + "&q=" + window.name + " has left the chat"
                     });
                   //firebase.auth().signOut();
                }
@@ -177,9 +307,8 @@
            }*/
 
             if(name == "Adam G"){
-                alert("You have illegally shared trade secrets of the Chatter Group. Chatter has banned you because of this act. Please note that this ban is not a legal sentence and legal mesures may be taken.");
+                alert("You have illegally shared trade secrets of the Chatter Group. Chatter has banned you because of this act. Please note that is ban is not a legal sentence and legal mesures may be taken.");
                 alert("You have been banned for violating the Terms of Use, this is a perment ban and you will never be able to use Chatter again.");
-                alert("Adam, you have made a bad choice, you shared the link out and now you have received a life-time ban. You can't get around this, hack it or abuse it. Your google account login for Chatter has been frozen and blocked.");
                 alert("Your account has been banned. It is possible to unban this account with a membership or fine under certian circumstances. Please contact admins for further infomation. You have been banned from Chatter for sharing trade secrets. The estimated settlement/fine to unblock this account is $9.99 USD + $2.01 USD Service Charge or €10 EUR + €2 Service Charge + €5 Conversion Fee, and a 20% extra on all purchases. Note this is just an estimation. An unblock account will also be monitered extremely. Another violation to Chatter Term of Use would cause another ban and a 40% increase in unblock fees(100% increase in service charges, no increase on conversion fees). ");
             }
             
@@ -201,8 +330,13 @@
 
                /*$.ajax({
                    type:"GET",
-                   url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + name + " has joined the chat"
+                   url:"https://chatochondria.000webhostapp.com/privchat.php?ver=verbeta&q=" + name + " has joined the chat"
                });*/
+            
+            if(name == "Adam G"){
+                alert("Adam, you have made a bad choice, you shared the link out and now you have received a life-time ban. You can't get around this, hack it or abuse it. Your google account login for Chatter has been frozen and blocked.");
+                location.href = "https://app.usechatter.com";
+            }
 
                /*setInterval(function(){
                 // Blacklist Function
@@ -230,31 +364,14 @@
                     }
                 }
                },100);*/
-            
-                document.body.onload = function(){
-                    if(login == true){
-                      window.login = true;
-                      document.getElementById("hey").innerHTML = "Hello, " + window.name;
-                      tc.innerHTML = "Logout"
-                      tc.style.background = "white";
-                      tc.style.border = "1px solid black";
-                      tc.style.width = "50px";
-                      tc.style.padding = "2px";
-                      document.getElementById("text").placeholder = "Come On, Join the Conversation!";
-                        
-                        $.ajax({
-                           type:"GET",
-                           url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + window.name + " has joined the chat"
-                       });
-                    }
-                }
 
                setInterval(update,500);
 
-             function update(){
-               if(login == true){
+               function update(){
+
+                if(login == true){
                   window.login = true;
-                  document.getElementById("hey").innerHTML = "Hello, " + window.name;
+                  document.getElementById("hey").innerHTML = "Hello, " + window.name + ". You are in room " + roomnum;
                   tc.innerHTML = "Logout"
                   tc.style.background = "white";
                   tc.style.border = "1px solid black";
@@ -262,8 +379,9 @@
                   tc.style.padding = "2px";
                   document.getElementById("text").placeholder = "Come On, Join the Conversation!";
                 }
+
                 $.ajax({
-                  url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta",
+                  url:"https://chatochondria.000webhostapp.com/privchat.php?ver=privbeta&room=" + roomnum,
                   type:"GET",
                   success:function(data){
                     if(prev != data){
@@ -302,29 +420,13 @@
                    
                 }
             
-                document.getElementById("send").onkeydown = function (event){
-                    if (event.keyCode === 13) {
-                        if(text.value.length > 0 && login == true){
-
-                            $.ajax({
-                                type:"GET",
-                                url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + name + ": " + text.value,
-                                success:function(data){
-                                    //alert(data);
-                                    text.value = "";
-                                }
-                            });
-                        }
-                    }
-                }
-            
                 document.getElementById("send").onclick = function(){
 
                     if(text.value.length > 0 && login == true){
 
                         $.ajax({
                             type:"GET",
-                            url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + name + ": " + text.value,
+                            url:"https://chatochondria.000webhostapp.com/privchat.php?ver=privbeta&room=" + roomnum + "&q=" + name + ": " + text.value,
                             success:function(data){
                                 //alert(data);
                                 text.value = "";
@@ -333,11 +435,5 @@
                     }
                 }
        </script>
-        <style>
-                        body, html {
-  cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/no-drag.png), not-allowed;
-  height: 100%;
-}
-            </style>
     </body>
 </html>

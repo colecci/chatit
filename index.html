@@ -276,9 +276,12 @@
                       ds = data.split("_NXT_MSG_");
 
                       for (var i = 0; i < ds.length; i++) {
+                          
+                        var tstamp = ds[i].split("_T_STAMP_");
+                          
                         var dataTarget = document.createElement("span");
                         var addPadding = document.createElement("span");
-                        addPadding.innerHTML = ds[i];
+                        addPadding.innerHTML = ds[i] + "<br>" + tstamp[1];
 
                         addPadding.className = "add_padding";
                         addPadding.style.overflow = "auto";

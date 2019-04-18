@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,7 +7,6 @@
         <link href="https://usechatter.github.io/newdemo/emoji-css/emoji.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="main.css">
-        <link rel="manifest" href="/manifest.json">
     </head>
     <body style="background:#5595fc; cursor: url(https://raw.githubusercontent.com/UseChatter/chatter-2.0/master/pointer.png), pointer;">
 
@@ -45,81 +43,29 @@
         <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
         <script id='pixel-script-poptin' src='https://cdn.popt.in/pixel.js?id=de951cc5caf50' async='true'></script> 
         <script>
-            // Retrieve Firebase Messaging object.
-const messaging = firebase.messaging();
-// Add the public key generated from the console here.
-messaging.usePublicVapidKey("BOif7IAL7EQ1BaRrGvNGc2sixUbyn76dE9rIyE3cWa36fpPZG1Hf2-DFVEMxYtjmbvTIermbESeH0fjL9c33pO4");
-            messaging.requestPermission().then(function() {
-  console.log('Notification permission granted.');
-  // TODO(developer): Retrieve an Instance ID token for use with FCM.
-  // ...
-}).catch(function(err) {
-  console.log('Unable to get permission to notify.', err);
-});
-            // Get Instance ID token. Initially this makes a network call, once retrieved
-// subsequent calls to getToken will return from cache.
-messaging.getToken().then(function(currentToken) {
-  if (currentToken) {
-    sendTokenToServer(currentToken);
-    updateUIForPushEnabled(currentToken);
-  } else {
-    // Show permission request.
-    console.log('No Instance ID token available. Request permission to generate one.');
-    // Show permission UI.
-    updateUIForPushPermissionRequired();
-    setTokenSentToServer(false);
-  }
-}).catch(function(err) {
-  console.log('An error occurred while retrieving token. ', err);
-  showToken('Error retrieving Instance ID token. ', err);
-  setTokenSentToServer(false);
-});
-            // Callback fired if Instance ID token is updated.
-messaging.onTokenRefresh(function() {
-  messaging.getToken().then(function(refreshedToken) {
-    console.log('Token refreshed.');
-    // Indicate that the new Instance ID token has not yet been sent to the
-    // app server.
-    setTokenSentToServer(false);
-    // Send Instance ID token to app server.
-    sendTokenToServer(refreshedToken);
-    // ...
-  }).catch(function(err) {
-    console.log('Unable to retrieve refreshed token ', err);
-    showToken('Unable to retrieve refreshed token ', err);
-  });
-});
-
+            
             function myFunction() {
               var x = Math.floor((Math.random() * 999));
               return x;
             }
-
             function myLets() {
               var xy = Math.floor((Math.random() * 25));
               var lets = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
               return lets[xy];
             }
-
             function privoc() {
               var x = myFunction().toString();
               var leto = myLets();
               var lett = myLets();
               var y = myFunction().toString();
-
               var xx = x + leto + lett + y;
-
               return xx;
             }
-
           document.getElementById("cpriv").onclick = function(){
             alert("A random unique & secure chat room code will be created. You will be automaticly redirected to the chatroom");
-
             localStorage.setItem("chatter_private_room_number", privoc());
-
             location.href = "privatechat.html";
           }
-
           document.getElementById("jpriv").onclick = function(){
             var rt = prompt("Please enter the secure chat room code for the chatroom you are entering: ");
               
@@ -127,9 +73,7 @@ messaging.onTokenRefresh(function() {
                 alert("You have not inputed a chat room code. You will not enter any chatroom");
                   return;
               }
-
             localStorage.setItem("chatter_private_room_number", rt);
-
             location.href = "privatechat.html";
           }
             
@@ -146,11 +90,8 @@ messaging.onTokenRefresh(function() {
             messagingSenderId: "272359858522"
           };
           firebase.initializeApp(config);
-
           var provider = new firebase.auth.GoogleAuthProvider();
-
           var tc = document.getElementById("tc");
-
           tc.onclick = function(){
             if(login == false){
               firebase.auth().signInWithRedirect(provider);
@@ -173,7 +114,6 @@ messaging.onTokenRefresh(function() {
               })
             }
           }
-
           firebase.auth().getRedirectResult().then(function(result) {
             if (result.credential) {
               // This gives you a Google Access Token. You can use it to access the Google API.
@@ -215,12 +155,10 @@ messaging.onTokenRefresh(function() {
                   //firebase.auth().signOut();
                }
             }
-
            //var name = prompt("What is your name");
            /*if (typeof localStorage.getItem("chatter_name") === 'undefined') {
                 localStorage
            }*/
-
             if(name == "Adam G"){
                 alert("You have illegally shared trade secrets of the Chatter Group. Chatter has banned you because of this act. Please note that this ban is not a legal sentence and legal mesures may be taken.");
                 alert("You have been banned for violating the Terms of Use, this is a perment ban and you will never be able to use Chatter again.");
@@ -232,32 +170,22 @@ messaging.onTokenRefresh(function() {
                    name += Math.round(Math.random() * 99);
                }
                var chat = document.getElementById("chat");
-
                var send = document.getElementById("send");
-
                var text = document.getElementById("text");
-
-
                var span = document.getElementsByTagName("span");
-
                var welcomeNote = document.createElement("span");
-
                 //document.getElementById("hey").innerHTML = "Hello, " + name + "!";
-
                /*$.ajax({
                    type:"GET",
                    url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + name + " has joined the chat"
                });*/
-
                /*setInterval(function(){
                 // Blacklist Function
                 var inputo = text.value;
                 var input = inputo.toLowerCase();
                 var words = input.split(" ");
-
                 for (var i = 0; i < words.length; i++) {
                     var curword = words[i];
-
                     if(curword == "francis" || curword == "fransis" || curword == "mcnutty" || curword == "hate" || curword == "fuck" || curword == "shit" || curword == "fuck" || curword == "bitch" || curword == "shit" || curword="crap"){
                         alert("This word is banned. Your message has been deleted. This incident has been reported.");
                         text.value = "";
@@ -266,7 +194,6 @@ messaging.onTokenRefresh(function() {
                         var rawdata = database.ref('homebannedWords2/');
                         rawdata.push({msg:myIP+"- "+name+": "+curword+" at "+d.getFullYear()+","+d.getMonth()+","+d.getDate()+","+d.getHours()+":"+d.getMinutes()});
                     }
-
                     if(name != "Cole" && name != "Michael"){
                         if(curword == "~"){
                             alert("This function is reserved for admins only.");
@@ -293,9 +220,7 @@ messaging.onTokenRefresh(function() {
                        });
                     }
                 }
-
                setInterval(update,500);
-
              function update(){
                if(login == true){
                   window.login = true;
@@ -314,13 +239,9 @@ messaging.onTokenRefresh(function() {
                     if(prev != data){
                       document.getElementById("chat").innerHTML = "";
                       welcomeNote.className = "non_mod_text";
-
                       welcomeNote.innerHTML = "InfoBot: " + "<span style = 'color:darkblue;'>Hello there, welcome to Chatter! Before you get started with your journey, we would like you to know about our simple rules. You may not abuse this program with inappropriate/hurtful content. Failure to follow the rule will result in suspension, added blacklist characters including your name, and banning of your computer. Admins can access/view all messages at all times. Some names and words are banned. Thanks and have fun! Chatter Version 2.3</span>";
-
                       chat.appendChild(welcomeNote);
-
                       ds = data.split("_NXT_MSG_");
-
                       for (var i = 0; i < ds.length; i++) {
                           
                         var tstamp = ds[i].split("_T_STAMP_");
@@ -328,21 +249,16 @@ messaging.onTokenRefresh(function() {
                         var dataTarget = document.createElement("span");
                         var addPadding = document.createElement("span");
                         addPadding.innerHTML = tstamp[0] + "<br><br><br><h6 style = 'color:#36935b;'>  Posted At " + tstamp[1] + "</h6>";
-
                         addPadding.className = "add_padding";
                         addPadding.style.overflow = "auto";
                         dataTarget.appendChild(addPadding);
-
                         dataTarget.className = "non_mod_text";
                         chat.appendChild(dataTarget);
-
                           chat.scrollTop = chat.scrollHeight;
-
                       } 
                     }
                     prev = data;
                     }
-
                     });
                    
                 }
@@ -350,7 +266,6 @@ messaging.onTokenRefresh(function() {
                 document.getElementById("send").onkeydown = function (event){
                     if (event.keyCode === 13) {
                         if(text.value.length > 0 && login == true){
-
                             $.ajax({
                                 type:"GET",
                                 url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + name + ": " + text.value,
@@ -364,9 +279,7 @@ messaging.onTokenRefresh(function() {
                 }
             
                 document.getElementById("send").onclick = function(){
-
                     if(text.value.length > 0 && login == true){
-
                         $.ajax({
                             type:"GET",
                             url:"https://chatochondria.000webhostapp.com/openchat.php?ver=verbeta&q=" + name + ": " + text.value,
@@ -401,28 +314,23 @@ messaging.onTokenRefresh(function() {
   bottom: 65px;
   font-size: 17px;
 }
-
 #notification112.show {
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
-
 @-webkit-keyframes fadein {
   from {bottom: 0; opacity: 0;} 
   to {bottom: 65px; opacity: 0.7;}
 }
-
 @keyframes fadein {
   from {bottom: 0; opacity: 0;}
   to {bottom: 65px; opacity: 0.7;}
 }
-
 @-webkit-keyframes fadeout {
   from {bottom: 65px; opacity: 0.7;} 
   to {bottom: 0; opacity: 0;}
 }
-
 @keyframes fadeout {
   from {bottom: 65px; opacity: 0.7;}
   to {bottom: 0; opacity: 0;}
@@ -439,4 +347,3 @@ function note() {
         <body onload="note()">
         <div id="notification112"><Message from: COLE MCCARSON>Hello, welcome to Chatter!</div>
         </body>
-</html>

@@ -90,14 +90,6 @@
             messagingSenderId: "272359858522"
           };
           firebase.initializeApp(config);
-            const messaging = firebase.messaging();
-            messaging.requestPermission()
-            .then(function() {
-                console.log('Have permission');
-            })
-            .catch(function(err) {
-                console.log(Error Occured);
-            })
             
             
             

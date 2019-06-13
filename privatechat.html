@@ -220,11 +220,6 @@ input{
             alert("You have not provided a room number. You will now be redirected back to public Chatter.");
             location.href = "https://app.usechatter.com";
           }
-
-          if(localStorage.chatter_private_room_number == admin){
-            alert("You are attempting to access an admin-only, protected, chatroom. You will now be redirected to the admin login page.");
-            location.href = "https://app.usechatter.com/chatroom-92-admin-login";
-          }
           var prev = "";
           var login = false;
           var config = {

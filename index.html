@@ -242,10 +242,9 @@
                     if(prev != data){
                       document.getElementById("chat").innerHTML = "";
                       welcomeNote.className = "non_mod_text";
-                      welcomeNote.innerHTML = "<div align="center">
+                      welcomeNote.innerHTML = "
  <p style="font-size: 16px;background-color:red;color:white">
- ANNOUNCEMENT: The team here at CCI and MicMacro are working hard on a new chat system. This one will be shutting down prior to Febuary, 2020. A 30-day notice will be given to all registered users before the closing date that will soon be determined. <b>A full post regarding the new chat system and how the removal of this one will effect active users will be published as the days progress.</b></p>
-</div>";
+ ANNOUNCEMENT: The team here at CCI and MicMacro are working hard on a new chat system. This one will be shutting down prior to Febuary, 2020. A 30-day notice will be given to all registered users before the closing date that will soon be determined. A full post regarding the new chat system and how the removal of this one will effect active users will be published as the days progress.</p>";
                       chat.appendChild(welcomeNote);
                       ds = data.split("_NXT_MSG_");
                       for (var i = 0; i < ds.length; i++) {
